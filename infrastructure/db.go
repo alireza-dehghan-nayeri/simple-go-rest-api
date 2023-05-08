@@ -2,10 +2,10 @@ package infrastructure
 
 import (
 	"fmt"
-	"os"
-
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"os"
+	"time"
 )
 
 // Database struct
@@ -13,8 +13,9 @@ type Database struct {
 	DB *gorm.DB
 }
 
-// NewDatabase : intializes and returns mysql db
+// NewDatabase : initializes and returns mysql db
 func NewDatabase() Database {
+	time.Sleep(20 * time.Second)
 	USER := os.Getenv("DB_USER")
 	PASS := os.Getenv("DB_PASSWORD")
 	HOST := os.Getenv("DB_HOST")
